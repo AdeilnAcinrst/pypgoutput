@@ -1,10 +1,10 @@
 # pypgoutput
 
-Python package to read, parse and convert PostgreSQL logical decoding messages to change data capture messages. Built using psycopg2's logical replication support objects, PostgreSQL's pgoutput plugin and Pydantic.
+Python package to read, parse and convert PostgreSQL logical decoding messages to change data capture messages. Built using psycopg2's logical replication support objects, PostgreSQL's pgoutput plugin.
 
 Uses python >= 3.8
 
-Developed on PostgreSQL 12 for now.
+Developed on PostgreSQL 12 for now. (Tested on PostgreSQL 16)
 
 **Warning**: this is a prototype and not production tested
 
@@ -19,7 +19,7 @@ $ pip install pypgoutput
 * Replication messages are consumed via psycopg2's replication connection. <https://www.psycopg.org/docs/extras.html#replication-support-objects>
 * The binary messages from pgoutput logical decoding are parsed in the `decoders.py` module.
 * Parsed messages are converted to change events and yieled from the `LogicalReplicationReader`
-* Change events are nested Pydantic models where the tuple data (before/after) schema is dynamically generated depending on the table being processed.
+* Change events are nested dict models where the tuple data (before/after) schema is dynamically generated depending on the table being processed.
 
 ## Example
 
