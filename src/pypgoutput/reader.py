@@ -287,7 +287,7 @@ class LogicalReplicationReader:
         key_only_schema_mapping = {
             c.name: convert_pg_type_to_py_type(c.type_name)
             for c in column_definitions
-            if c.part_of_pkey is True
+            if c.part_of_pkey
         }
         self.key_only_table_models[relation_id] = key_only_schema_mapping
 
